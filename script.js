@@ -26,3 +26,18 @@ progress.onchange=()=>{
     song.play();
     song.currentTime=progress.value;
 }
+
+song.onended = () => {
+    ctrlIcon.classList.remove('fa-pause');
+    ctrlIcon.classList.add('fa-repeat');
+};
+ctrlIcon.onclick = () => {
+    if (ctrlIcon.classList.contains('fa-repeat')) {
+        song.currentTime = 0;
+        song.play();
+        ctrlIcon.classList.remove('fa-repeat');
+        ctrlIcon.classList.add('fa-play');
+    } else {
+        playPause();
+    }
+};
